@@ -50,7 +50,7 @@ public class App {
 
         ProcessBuilder builder = new ProcessBuilder("java", senderRoute, advice.getName(), advice.getEmail(), advice.getSubject(), String.valueOf(advice.getPercentage()));
 
-        String outputFileRoute = "./src/net/salesianos/maillogs/" + advice.getName() + LocalDateTime.now() +".txt";
+        String outputFileRoute = "./src/net/salesianos/maillogs/" + advice.getName() + "_" + LocalDateTime.now() +".txt";
         File outputFile = new File(outputFileRoute);
 
         builder.redirectOutput(outputFile);
