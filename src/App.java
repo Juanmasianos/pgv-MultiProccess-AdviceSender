@@ -37,6 +37,7 @@ public class App {
 
         System.out.println("""
                 Introduce el numero de la materia a revisar y enviar aviso:
+                0. Cerrar el programa
                 1. AED
                 2. DAD
                 3. PGL
@@ -84,6 +85,12 @@ public class App {
             scanner.nextLine();
 
             switch (showMenu(scanner)) {
+                case "0": 
+
+                    System.out.println("Cerrando el programa");
+                    program = false;
+
+                    break;
                 case "1":
 
                     checkAndSend("aed");
@@ -114,6 +121,7 @@ public class App {
                     checkAndSend("a10");
 
                     break;
+
                 default:
 
                     System.out.println("Valor no reconocido");
