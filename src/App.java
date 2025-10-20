@@ -1,8 +1,10 @@
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 import net.salesianos.csvreader.CSVReader;
 import net.salesianos.datachecker.DataChecker;
@@ -21,10 +23,13 @@ public class App {
                 initMailSenderProccess(advice);
             
             }
+
+            System.out.println("Mails lanzados, para comprobar sus estados, compruebe en la carpeta maillogs.");
         
         } catch (IOException e) {
                 e.printStackTrace();
         }
+
 
     }
 
@@ -47,13 +52,18 @@ public class App {
     private static void initMailSenderProccess(Advice advice) throws IOException {
 
         String senderRoute = "./src/net/salesianos/mailsender/MailSender.java";
+        String packageRoute = "./lib/jakarta.mail-2.0.2.jar;./lib/jakarta.activation-2.0.1.jar";
 
-        ProcessBuilder builder = new ProcessBuilder("java", senderRoute, advice.getName(), advice.getEmail(), advice.getSubject(), String.valueOf(advice.getPercentage()));
+        ProcessBuilder builder = new ProcessBuilder("java", "-cp", packageRoute, senderRoute, advice.getName(), advice.getEmail(), advice.getSubject(), String.valueOf(advice.getPercentage()));
 
-        String outputFileRoute = "./src/net/salesianos/maillogs/" + advice.getName() + "_" + LocalDateTime.now() +".txt";
+        String outputFileRoute = "./src/net/salesianos/maillogs/" + advice.getName() + "_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss")) +".txt";
         File outputFile = new File(outputFileRoute);
 
+        String errorFileRoute = "./src/net/salesianos/maillogs/" + advice.getName() + "_error_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss")) +".txt";
+        File errorFile = new File(errorFileRoute);
+
         builder.redirectOutput(outputFile);
+        builder.redirectError(errorFile);
 
         builder.start();
 

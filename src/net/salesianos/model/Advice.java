@@ -30,12 +30,6 @@ public class Advice {
         return percentage;
     }
 
-    @Override
-    public String toString() {
-        return "Advice [name=" + name + ", email=" + email + ", subject=" + subject + ", percentage=" + percentage
-                + "]";
-    }
-
     
 
 }

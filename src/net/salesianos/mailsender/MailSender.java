@@ -24,9 +24,9 @@ public class MailSender {
         final String RECIPIENT_SUBJECT = args[2];
         final String RECIPIENT_PERCENTAGE = args[3];
 
-        final String SENDER_USER = "tu_correo@gmail.com";
+        final String SENDER_USER = "micorreitocorreocorreazo@gmail.com";
 
-        final String PASSWORD_APLICACION = "tu_contraseña_o_app_password";
+        final String PASSWORD_APLICACION = "Micontraseñitacontraseñacontraseñaca";
 
         final String HOST_SMTP = "smtp.gmail.com";
         final String PUERTO_SMTP = "587";
@@ -68,8 +68,8 @@ public class MailSender {
             System.out.println("Correo enviado con éxito a " + RECIPIENT_USER + " a las " + LocalDateTime.now());
 
         } catch (Exception e) {
-            System.err.println("Error al enviar el correo.");
-            e.printStackTrace();
+            System.out.println("Error al enviar el correo.");
+            System.out.println(e);
         }
 
     }
