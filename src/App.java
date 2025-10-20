@@ -1,14 +1,30 @@
 import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import net.salesianos.csvreader.CSVReader;
 import net.salesianos.datachecker.DataChecker;
+import net.salesianos.model.Advice;
 
 public class App {
 
-    private static void checkAndSend(String fileName) {
+    private static void checkAndSend(String fileName) throws IOException {
 
-        DataChecker.checkData(CSVReader.getData(fileName), fileName);
+        ArrayList<Advice> advices = DataChecker.checkData(CSVReader.getData(fileName), fileName);
+
+        try {
+
+            for (Advice advice : advices) {
+                
+                initMailSenderProccess(advice);
+            
+            }
+        
+        } catch (IOException e) {
+                e.printStackTrace();
+        }
 
     }
 
@@ -27,6 +43,23 @@ public class App {
         return scanner.nextLine();
 
     }
+
+    private static void initMailSenderProccess(Advice advice) throws IOException {
+
+        String senderRoute = "./src/net/salesianos/mailsender/MailSender.java";
+
+        ProcessBuilder builder = new ProcessBuilder("java", senderRoute, advice.getName(), advice.getEmail(), advice.getSubject(), String.valueOf(advice.getPercentage()));
+
+        String outputFileRoute = "./src/net/salesianos/maillogs/" + advice.getName() + LocalDateTime.now() +".txt";
+        File outputFile = new File(outputFileRoute);
+
+        builder.redirectOutput(outputFile);
+
+        builder.start();
+
+    }
+
+
 
     public static void main(String[] args) throws Exception {
 
