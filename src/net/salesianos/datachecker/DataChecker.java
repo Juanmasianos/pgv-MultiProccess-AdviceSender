@@ -12,12 +12,12 @@ public class DataChecker {
 
     public static ArrayList<Advice> checkData(ArrayList<Student> students, String subject) {
         
-        final int AEDLost = 206 * 20 / 100;
-        final int DADLost = 173 * 20 / 100;
-        final int PGLLost = 141 * 20 / 100;
-        final int PGVLost = 96 * 20 / 100;
-        final int SSGLost = 96 * 20 / 100;
-        final int A10Lost = 96 * 20 / 100;
+        final int AEDLost = (206 * 20) / 100;
+        final int DADLost = (173 * 20) / 100;
+        final int PGLLost = (141 * 20) / 100;
+        final int PGVLost = (96 * 20) / 100;
+        final int SSGLost = (96 * 20) / 100;
+        final int A10Lost = (96 * 20) / 100;
 
         ArrayList<Advice> advices = new ArrayList<>();
 
@@ -120,7 +120,7 @@ public class DataChecker {
         }
         
 
-        return null;
+        return advices;
     }
 
 }

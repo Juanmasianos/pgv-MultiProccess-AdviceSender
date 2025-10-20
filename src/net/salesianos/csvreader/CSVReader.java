@@ -11,7 +11,7 @@ public class CSVReader {
 
     public static ArrayList<Student> getData(String fileName) {
 
-        String fileRoute = "../calcfiles/" + fileName + ".csv";
+        String fileRoute = "./src/net/salesianos/calcfiles/" + fileName + ".csv";
         ArrayList<Student> students = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(fileRoute))) {
@@ -25,7 +25,7 @@ public class CSVReader {
 
                 if (index != 0) {
                     
-                    students.add(new Student(fields[1], fields[2], Integer.parseInt(fields[3])));
+                    students.add(new Student(fields[0], fields[1], Integer.parseInt(fields[2])));
 
                 } 
                 index++;
@@ -33,6 +33,7 @@ public class CSVReader {
 
         } catch (IOException e) {
             System.err.println("Fallo al leer el archivo");
+            e.printStackTrace();
         }
 
         return students;

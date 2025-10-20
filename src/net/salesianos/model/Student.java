@@ -32,6 +32,12 @@ public class Student {
     public void setAbsences(int absences) {
         this.absences = absences;
     }
+
+    @Override
+    public String toString() {
+        return "Student [name=" + name + ", email=" + email + ", absences=" + absences + "]";
+    }
+    
     
 
 }
