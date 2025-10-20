@@ -25,33 +25,7 @@ public class CSVReader {
 
                 if (index != 0) {
                     
-                    students.add(new Student(fields[1], fields[2]));
-
-                    if (fileName.equals("aed")) {
-
-                        students.get(index - 1).setAedAbsences(Integer.parseInt(fields[3]));
-                        
-                    } else if (fileName.equals("dad")) {
-
-                        students.get(index - 1).setDadAbsences(Integer.parseInt(fields[3]));
-
-                    } else if (fileName.equals("pgl")) {
-
-                        students.get(index - 1).setPglAbsences(Integer.parseInt(fields[3]));
-
-                    } else if (fileName.equals("pgv")) {
-
-                        students.get(index - 1).setPgvAbsences(Integer.parseInt(fields[3]));
-
-                    } else if (fileName.equals("ssg")) {
-
-                        students.get(index - 1).setSsgAbsences(Integer.parseInt(fields[3]));
-
-                    } else if (fileName.equals("a10")) {
-
-                        students.get(index - 1).setA10Absences(Integer.parseInt(fields[3]));
-
-                    } 
+                    students.add(new Student(fields[1], fields[2], Integer.parseInt(fields[3])));
 
                 } 
                 index++;

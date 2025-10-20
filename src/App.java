@@ -8,7 +8,7 @@ public class App {
 
     private static void checkAndSend(String fileName) {
 
-        DataChecker.checkData(CSVReader.getData(fileName));
+        DataChecker.checkData(CSVReader.getData(fileName), fileName);
 
     }
 

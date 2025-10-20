@@ -7,34 +7,118 @@ import net.salesianos.model.Student;
 
 public class DataChecker {
 
-    public static ArrayList<Advice> checkData(ArrayList<Student> arrayList) {
-        /*
-        if (fileName.equals("aed")) {
 
-            students.get(index - 1).setAedAbsences(Integer.parseInt(fields[3]));
+    
 
-        } else if (fileName.equals("dad")) {
+    public static ArrayList<Advice> checkData(ArrayList<Student> students, String subject) {
+        
+        final int AEDLost = 206 * 20 / 100;
+        final int DADLost = 173 * 20 / 100;
+        final int PGLLost = 141 * 20 / 100;
+        final int PGVLost = 96 * 20 / 100;
+        final int SSGLost = 96 * 20 / 100;
+        final int A10Lost = 96 * 20 / 100;
 
-            students.get(index - 1).setDadAbsences(Integer.parseInt(fields[3]));
+        ArrayList<Advice> advices = new ArrayList<>();
 
-        } else if (fileName.equals("pgl")) {
+        if (subject.equals("aed")) {
 
-            students.get(index - 1).setPglAbsences(Integer.parseInt(fields[3]));
+            for (Student student : students) {
+                
+                if (student.getAbsences() >= AEDLost) {
+                    
+                    advices.add(new Advice(student.getName(), student.getEmail(), subject, 20));
+                    
+                } else if (student.getAbsences() >= (AEDLost / 2)) {
+                    
+                    advices.add(new Advice(student.getName(), student.getEmail(), subject, 10));
+                    
+                }
+            }
 
-        } else if (fileName.equals("pgv")) {
+        } else if (subject.equals("dad")) {
 
-            students.get(index - 1).setPgvAbsences(Integer.parseInt(fields[3]));
+            
+            for (Student student : students) {
+                
+                if (student.getAbsences() >= DADLost) {
+                    
+                    advices.add(new Advice(student.getName(), student.getEmail(), subject, 20));
+                    
+                } else if (student.getAbsences() >= (DADLost / 2)) {
+                    
+                    advices.add(new Advice(student.getName(), student.getEmail(), subject, 10));
+                    
+                }
+            }
 
-        } else if (fileName.equals("ssg")) {
+        } else if (subject.equals("pgl")) {
 
-            students.get(index - 1).setSsgAbsences(Integer.parseInt(fields[3]));
+            
+            for (Student student : students) {
+                
+                if (student.getAbsences() >= PGLLost) {
+                    
+                    advices.add(new Advice(student.getName(), student.getEmail(), subject, 20));
+                    
+                } else if (student.getAbsences() >= (PGLLost / 2)) {
+                    
+                    advices.add(new Advice(student.getName(), student.getEmail(), subject, 10));
+                    
+                }
+            }
 
-        } else if (fileName.equals("a10")) {
+        } else if (subject.equals("pgv")) {
 
-            students.get(index - 1).setA10Absences(Integer.parseInt(fields[3]));
+            
+            for (Student student : students) {
+                
+                if (student.getAbsences() >= PGVLost) {
+                    
+                    advices.add(new Advice(student.getName(), student.getEmail(), subject, 20));
+                    
+                } else if (student.getAbsences() >= (PGVLost / 2)) {
+                    
+                    advices.add(new Advice(student.getName(), student.getEmail(), subject, 10));
+                    
+                }
+            }
+
+        } else if (subject.equals("ssg")) {
+
+            
+            for (Student student : students) {
+                
+                if (student.getAbsences() >= SSGLost) {
+                    
+                    advices.add(new Advice(student.getName(), student.getEmail(), subject, 20));
+                    
+                } else if (student.getAbsences() >= (SSGLost / 2)) {
+                    
+                    advices.add(new Advice(student.getName(), student.getEmail(), subject, 10));
+                    
+                }
+            }
+
+
+        } else if (subject.equals("a10")) {
+
+            
+            for (Student student : students) {
+                
+                if (student.getAbsences() >= A10Lost) {
+                    
+                    advices.add(new Advice(student.getName(), student.getEmail(), subject, 20));
+                    
+                } else if (student.getAbsences() >= (A10Lost / 2)) {
+                    
+                    advices.add(new Advice(student.getName(), student.getEmail(), subject, 10));
+                    
+                }
+            }
 
         }
-         */
+        
 
         return null;
     }

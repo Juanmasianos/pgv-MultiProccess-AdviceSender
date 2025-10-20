@@ -4,16 +4,12 @@ public class Student {
     // "./src/net/salesianos/calcfiles/aed.csv"
     private String name;
     private String email;
-    private int aedAbsences;
-    private int dadAbsences;
-    private int pglAbsences;
-    private int pgvAbsences;
-    private int ssgAbsences;
-    private int a10Absences;
+    private int absences;
 
-    public Student(String name, String email) {
+    public Student(String name, String email, int absences) {
         this.name = name;
         this.email = email;
+        this.absences = absences;
     }
 
     public String getName() {
@@ -29,54 +25,13 @@ public class Student {
         this.email = email;
     }
 
-    public int getAedAbsences() {
-        return aedAbsences;
+    public int getAbsences() {
+        return absences;
     }
 
-    public void setAedAbsences(int aedAbsences) {
-        this.aedAbsences = aedAbsences;
+    public void setAbsences(int absences) {
+        this.absences = absences;
     }
-
-    public int getDadAbsences() {
-        return dadAbsences;
-    }
-
-    public void setDadAbsences(int dadAbsences) {
-        this.dadAbsences = dadAbsences;
-    }
-
-    public int getPglAbsences() {
-        return pglAbsences;
-    }
-
-    public void setPglAbsences(int pglAbsences) {
-        this.pglAbsences = pglAbsences;
-    }
-
-    public int getPgvAbsences() {
-        return pgvAbsences;
-    }
-
-    public void setPgvAbsences(int pgvAbsences) {
-        this.pgvAbsences = pgvAbsences;
-    }
-
-    public int getSsgAbsences() {
-        return ssgAbsences;
-    }
-
-    public void setSsgAbsences(int ssgAbsences) {
-        this.ssgAbsences = ssgAbsences;
-    }
-
-    public int getA10Absences() {
-        return a10Absences;
-    }
-
-    public void setA10Absences(int a10Absences) {
-        this.a10Absences = a10Absences;
-    }
-
     
 
 }
